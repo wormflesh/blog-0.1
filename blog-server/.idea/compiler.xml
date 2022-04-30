@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="blog-swagger-test" />
+        <module name="blog-server0.1" />
+        <module name="blog-entity" />
+        <module name="upload" />
+        <module name="blog-jwt-test" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="blog-entity" target="1.8" />
+      <module name="blog-jwt-test" target="1.8" />
+      <module name="blog-server" target="1.8" />
+      <module name="blog-server0.1" target="1.8" />
+      <module name="blog-swagger-test" target="1.8" />
+      <module name="upload" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="blog-entity" options="-parameters" />
+      <module name="blog-jwt-test" options="-parameters" />
+      <module name="blog-server" options="-parameters" />
+      <module name="blog-server0.1" options="-parameters" />
+      <module name="blog-swagger-test" options="-parameters" />
+      <module name="upload" options="" />
+    </option>
+  </component>
+</project>

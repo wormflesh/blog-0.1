@@ -1,0 +1,44 @@
+server:
+  port: 8881
+  # SSL证书配置
+  ssl:
+    enabled: true
+    key-store: classpath:wormflesh.top.pfx # （密钥文件路径，也可以配置绝对路径）
+    key-store-password: Jin135790* # （密钥生成时输入的密钥库口令）
+    key-store-type: PKCS12 #（密钥类型，与密钥生成命令一致）
+
+# 自定义图片上传路径
+# Linux
+image-save-path: /root/images/
+# Windows 10
+#image-save-path: D:/temp/photo/
+
+# 自定义md文件上传路径
+# Linux
+mdfile-save-path: /root/mdfile/
+# Windows 10
+#mdfile-save-path: D:/temp/photo/
+
+spring:
+  main:
+    # 允许循环引用
+    allow-circular-references: true
+  # 数据源配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: "jdbc:mysql://120.53.122.35:3306/worm_blog?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=true"
+    url: "jdbc:mysql://172.17.0.1:3306/worm_blog?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=true"
+    username: root
+    password: Worm_Flesh!0
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*Mapper.xml
+  #配置mybatis数据返回类型别名
+  type-aliases-package: com.wormflesh.server.pojo
+  configuration:
+    # 自动驼峰命名
+    map-underscore-to-camel-case: false
+
+logging:
+  level:
+    com.wormflesh.server.mapper: debug
