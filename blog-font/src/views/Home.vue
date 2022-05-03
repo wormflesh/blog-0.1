@@ -94,7 +94,6 @@
                     this.postList = res.data.data.records || []
                     this.currPage = res.data.data.current
                     this.pages = res.data.data.pages
-                    console.log(res.data.data);
                 }).catch(err => {
                     console.log(err)
                 })

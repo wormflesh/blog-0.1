@@ -63,7 +63,8 @@
                             <div class="post-tags">
                                 <i class="iconfont iconcategory"></i>
                                 <template v-for="tag in tags">
-                                    <router-link :to="'/category/'+tag.label_name" :key="tag.label_id"> {{tag.label_name}} </router-link>
+                                    
+                                    <router-link :to="'/label/'+tag.label_name" :key="tag.label_id"> <el-tag>{{tag.label_name}}</el-tag> </router-link>
                                     
                                 </template>
                             </div>
@@ -96,7 +97,6 @@
               fetchArticle(this.$route.params.id).then(res => {
                   this.blog = res.data.data.article || []
                   this.tags = res.data.data.labels || []
-                  console.log(this.blog);
               }).catch(err => {
                   console.log(err)
               })

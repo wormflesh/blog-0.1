@@ -18,9 +18,15 @@ const routes = [
     meta: { title: '分类', params: 'cate'}
   },
   {
+    path: '/label/:label',
+    name: 'label',
+    component: () => import('@/views/Label.vue'),
+    meta: { title: '分类', params: 'label'}
+  },
+  {
     path: '/search/:words',
     name: 'search',
-    component: () => import('@/views/Home.vue'),
+    component: () => import('@/views/Search.vue'),
     meta: { title: '搜索', params: 'words'}
   },
   {
@@ -49,8 +55,27 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
-
-
+// 路径跳转
+router.beforeEach((to, from, next) => {
+  let title = 'WormFlesh'
+  if (to.meta.params){
+      title = `${to.meta.title}:${to.params[to.meta.params] || ''} - ${title}`
+  }else {
+      title = `${to.meta.title} - ${title}`
+  }
+  document.title = title
+  if (to.path !== from.path) {
+      store.dispatch('setLoading', true);
+  }
+  next();
+})
+// 时间限制
+router.afterEach((to, from) => {
+  // 最多延迟 关闭 loading
+  setTimeout(() => {
+      store.dispatch('setLoading', false);
+  }, 550)
+})
 
 
 export default router

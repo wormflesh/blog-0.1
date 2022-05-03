@@ -16,6 +16,22 @@ export function fetchPageByCategory(cate, current) {
     })
 }
 
+// 获取标签文章---分页
+export function fetchPageByLabel(label, current) {
+    return request({
+        url: 'article/getArticleByLabel/'+label+'/'+current+'/8',
+        method: 'get',
+    })
+}
+
+// 获取搜索文章---分页
+export function fetchPageByWords(words, current) {
+    return request({
+        url: 'article/getArticleByTitle/'+words+'/'+current+'/8',
+        method: 'get',
+    })
+}
+
 // 获取分类列表
 export function fetchCategory() {
     return request({

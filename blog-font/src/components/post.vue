@@ -14,6 +14,12 @@
             </div>
             <p class="summary">{{post.article.art_summary}}</p>
             <footer class="entry-footer">
+                <!-- 文章标签 -->
+                <div class="post-tags">
+                    <template v-for="label in post.labels">
+                        <router-link :to="'/label/'+label.label_name" :key="label.label_id"> <el-tag>{{label.label_name}}</el-tag> </router-link>
+                    </template>
+                </div>
                 <div class="post-more">
                     <router-link :to="`/article/${post.article.art_id}`"><i class="iconfont iconfish-li" style="font-size: 25px;"></i></router-link>
                 </div>

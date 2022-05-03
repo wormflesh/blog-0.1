@@ -45,7 +45,7 @@
     import Post from '@/components/post'
     import SmallIco from '@/components/small-ico'
     import Quote from '@/components/quote'
-    import {fetchFeature, fetchPageByCategory} from '../api'
+    import {fetchFeature, fetchPageByWords} from '../api'
 
     export default {
         name: 'category',
@@ -55,7 +55,7 @@
                 features: [],
                 postList: [],
                 currPage: 1,
-                pages: 999,
+                pages: 1,
                 hasNextPage: false
             }
         },
@@ -89,8 +89,8 @@
                     console.log(err)
                 })
             },
-            fetchPageByCategory() {
-                fetchPageByCategory(this.$route.params.cate,this.currPage).then(res => {
+            fetchPageByWords() {
+                fetchPageByWords(this.$route.params.words,this.currPage).then(res => {
                     this.postList = res.data.data.records || []
                     this.currPage = res.data.data.current
                     this.pages = res.data.data.pages
@@ -100,13 +100,13 @@
                 this.hashNextPage();
             },
             hashNextPage() {
-                if(this.currPage != this.pages) {
-                    this.hasNextPage = true
-                }else
+                if(this.currPage == this.pages) {
                     this.hasNextPage = false
+                }else
+                    this.hasNextPage = true
             },
             loadMore() {
-                fetchPageByCategory(this.$route.params.cate,this.currPage+1).then(res => {
+                fetchPageByWords(this.$route.params.words,this.currPage+1).then(res => {
                     this.postList = this.postList.concat(res.data.data.records || [])
                     this.currPage = res.data.data.current
                     this.pages = res.data.data.pages
@@ -116,12 +116,12 @@
         },
         watch: {
             '$route'() {
-                this.fetchPageByCategory();
+                this.fetchPageByWords();
             }
         },
         mounted() {
             this.fetchFeature();
-            this.fetchPageByCategory();
+            this.fetchPageByWords();
         }
     }
 </script>

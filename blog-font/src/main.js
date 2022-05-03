@@ -6,6 +6,7 @@ import store from './store'
 import './assets/css/style.less'
 import './assets/font/iconfont.css'
 import mavonEditor from "mavon-editor"
+import './plugins/element.js'
 
 Vue.use(mavonEditor)
 

@@ -45,11 +45,11 @@
     import Post from '@/components/post'
     import SmallIco from '@/components/small-ico'
     import Quote from '@/components/quote'
-    import {fetchFeature, fetchPageByCategory} from '../api'
+    import {fetchFeature, fetchPageByLabel} from '../api'
 
     export default {
-        name: 'category',
-        props: ['cate', 'words'],
+        name: 'label',
+        props: ['label', 'cate', 'words'],
         data() {
             return {
                 features: [],
@@ -74,6 +74,9 @@
             category() {
                 return this.$route.params.cate
             },
+            label() {
+                return this.$route.params.label
+            },
             hideSlogan() {
                 return this.category || this.searchWords
             },
@@ -89,8 +92,8 @@
                     console.log(err)
                 })
             },
-            fetchPageByCategory() {
-                fetchPageByCategory(this.$route.params.cate,this.currPage).then(res => {
+            fetchPageByLabel() {
+                fetchPageByLabel(this.$route.params.label,this.currPage).then(res => {
                     this.postList = res.data.data.records || []
                     this.currPage = res.data.data.current
                     this.pages = res.data.data.pages
@@ -106,7 +109,7 @@
                     this.hasNextPage = false
             },
             loadMore() {
-                fetchPageByCategory(this.$route.params.cate,this.currPage+1).then(res => {
+                fetchPageByLabel(this.$route.params.label,this.currPage+1).then(res => {
                     this.postList = this.postList.concat(res.data.data.records || [])
                     this.currPage = res.data.data.current
                     this.pages = res.data.data.pages
@@ -116,12 +119,12 @@
         },
         watch: {
             '$route'() {
-                this.fetchPageByCategory();
+                this.fetchPageByLabel();
             }
         },
         mounted() {
             this.fetchFeature();
-            this.fetchPageByCategory();
+            this.fetchPageByLabel();
         }
     }
 </script>

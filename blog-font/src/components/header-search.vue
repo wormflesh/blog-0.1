@@ -1,7 +1,7 @@
 <template>
     <div class="header-search">
         <i class="iconfont iconsearch" @click.stop="click"></i>
-        <input ref="searchInput" :class="{'show':show}" v-model="searchValue" :key="searchValue" type="text" @click.stop="" @keyup.enter="search"/>
+        <input ref="searchInput" :class="{'show':show}" v-model="searchValue" placeholder="输入关键字..." type="text" @click.stop="" @keyup.enter="search"/>
     </div>
 </template>
 
@@ -25,7 +25,6 @@
         },
         methods:{
             search(){
-                // console.log(this.searchValue)
                 this.$router.push({name:'search',params:{words:this.searchValue}});
                 this.close()
             },
