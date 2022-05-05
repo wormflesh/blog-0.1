@@ -29,7 +29,7 @@
 <script>
     import sectionTitle from '@/components/section-title'
     import Quote from "@/components/quote";
-    import {fetchFriend} from '../api'
+    // import {fetchFriend} from '../api'
     export default {
         name: "Friend",
         data(){
@@ -43,13 +43,13 @@
             sectionTitle
         },
         methods: {
-            fetchFriend() {
-                fetchFriend().then(res => {
-                    this.list = res.data || []
-                }).catch(err => {
-                    console.log(err)
-                })
-            },
+            // fetchFriend() {
+            //     fetchFriend().then(res => {
+            //         this.list = res.data || []
+            //     }).catch(err => {
+            //         console.log(err)
+            //     })
+            // },
             getWebSiteInfo(){
                 this.$store.dispatch('getSiteInfo').then(data =>{
                     this.websiteInfo = data
@@ -58,7 +58,7 @@
         },
         mounted() {
             this.getWebSiteInfo();
-            this.fetchFriend();
+            // this.fetchFriend();
         }
     }
 </script>

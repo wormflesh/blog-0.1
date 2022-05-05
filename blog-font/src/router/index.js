@@ -47,6 +47,12 @@ const routes = [
     component: () => import('../views/About.vue'),
     meta: { title: '关于'}
   },
+  {
+    path: '/experiment/csvToHtml',
+    name: 'csvToHtml',
+    component: () => import('@/views/experiment/CsvToHtml.vue'),
+    meta: { title: 'csv转换为Html'}
+  },
   
 ]
 

@@ -1,0 +1,19 @@
+server:
+  port: 8882
+  # SSL证书配置
+  ssl:
+    enabled: true
+    key-store: classpath:wormflesh.top.pfx # （密钥文件路径，也可以配置绝对路径）
+    key-store-password: Jin135790* # （密钥生成时输入的密钥库口令）
+    key-store-type: PKCS12 #（密钥类型，与密钥生成命令一致）
+
+save_path:
+  image: /root/images/
+  mdfile: /root/mdfile/
+#  file: D:/temp/file/
+  file: /root/file/
+
+
+logging:
+  level:
+    com.wormflesh.server.mapper: debug

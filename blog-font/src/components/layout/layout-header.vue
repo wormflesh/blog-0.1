@@ -25,7 +25,7 @@
             <div class="menu-item hasChild">
                 <a href="#">实验室</a>
                 <div class="childMenu">
-                    <!-- <div class="sub-menu"><router-link :to="`/laboratory/${item}`">{{item}}</router-link></div> -->
+                    <div class="sub-menu" ><router-link :to="`/experiment/csvToHtml`">CSV转为HTML</router-link></div>
                 </div>
             </div>
         </div>
@@ -155,7 +155,7 @@ export default {
             }
         }
         .childMenu{
-            width: 130px;
+            width: 150px;
             background-color: #FDFDFD;
             border-radius: 3px;
             border: 1px solid #ddd;

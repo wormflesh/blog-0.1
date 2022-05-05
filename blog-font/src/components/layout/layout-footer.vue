@@ -8,9 +8,9 @@
             </div>
             <div class="footer-item">
                 <div style="font-size:17px;font-weight: bold;">资源</div>
-                <div><a target="_blank" class="out-link" href="https://segmentfault.com/weekly?utm_source=sf-footer">每周精选</a></div>
-                <div><a target="_blank" class="out-link" href="https://www.jmjc.tech/">简明教程</a></div>
-                <div><a target="_blank" class="out-link" href="https://www.liaoxuefeng.com/">廖雪峰的官方网站</a></div>
+                <div><a target="_blank" class="out-link" href="https://leetcode-cn.com/">leetcode中文站</a></div>
+                <div><a target="_blank" class="out-link" href="https://blog.nowcoder.net/wormflesh">WormFlesh的牛客博客</a></div>
+                <div><a target="_blank" class="out-link" href="https://github.com/wormflesh">WormFlesh的githug主页</a></div>
             </div>
             <div class="footer-item">
                 <div><a target="_blank" class="out-link" href="#">☞后台管理</a></div>

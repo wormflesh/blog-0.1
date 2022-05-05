@@ -55,3 +55,11 @@ export function fetchArticle(id) {
         method: 'get',
     })
 }
+// --------------------------实验-----------------------------------
+// 获取文章
+export function csvToHtml() {
+    return request({
+        url: '/experiment/csvToHtml/',
+        method: 'post',
+    })
+}
