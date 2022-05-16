@@ -59,6 +59,7 @@ const routes = [
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
+  scrollBehavior: () => ({y:0}),
   routes
 })
 // 路径跳转
